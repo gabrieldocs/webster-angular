@@ -1,0 +1,61 @@
+<div class="p-2 m-2">
+    <h1 class="text-2xl font-bold">What are you interested in?</h1>
+    <form 
+        class="flex flex-row items-center gap-2 p-2 m-2 border-2 border-black rounded-lg"
+        (ngSubmit)="handleAdd(name)">
+        <input class="border-2 border-black rounded-lg px-2 py-1 mr-2" type="text" #name placeholder="Interest name"/>
+        <app-interest-type-select [(value)]="newInterestType"></app-interest-type-select>
+        <button 
+            class="border-2 border-black rounded-lg px-3 py-1 bg-blue-600 text-blue-100 font-bold"
+            type="submit">Add interest</button>
+    </form>
+
+    <hr class="border-2 mt-2 mb-3"/>
+    <h1 variant="font-black text-2xl">My Interests</h1>
+    <div class="my-2">
+        <label class="mr-2 font-bold">Filter:</label>
+        <app-interest-type-select 
+        [(value)]="filter"
+        [showAll]="true">
+        </app-interest-type-select>
+    <div class="flex gap-4 my-4">
+        <div class="flex flex-col items-center justify-center bg-white border-2 border-gray-300 rounded-lg shadow w-40 h-32">
+            <span class="text-lg font-semibold mb-2">Work Related</span>
+            <span class="text-4xl font-extrabold text-blue-700">{{summary.work_related}}</span>
+        </div>
+        <div class="flex flex-col items-center justify-center bg-white border-2 border-gray-300 rounded-lg shadow w-40 h-32">
+            <span class="text-lg font-semibold mb-2">Hobby Related</span>
+            <span class="text-4xl font-extrabold text-pink-700">{{summary.hobby_related}}</span>
+        </div>
+    </div>
+    </div>
+    <ul>
+        @for(interest of interests; track interest.interest_name; let i = $index) {
+            <li class="mb-2 mt-3 font-bold border-b-2">
+                @if(editingIndex === i) {
+                    <div>
+                        <input class="border p-1 border-blue-500"
+                            [(ngModel)]="interest.interest_name"/>
+                        <app-interest-type-select [(value)]="interest.interest_type"></app-interest-type-select>
+                        <button 
+                            (click)="saveEdit()"
+                            class="bg-green-500 p-1 w-32 ml-2 mr-2 text-green-100">
+                            Save
+                        </button>
+                        <button 
+                            (click)="cancelEdit()"
+                            class="bg-red-500 p-1 w-32 ml-2 mr-2 text-red-100">
+                            Cancel
+                        </button>
+                    </div>
+                } @else {
+                    <span>
+                        {{interest.interest_name}} + <code class="text-pink-500">{{interest.interest_type}}</code>
+                    </span>
+                    <button (click)="startEdit(i)"
+                    class="bg-blue-500 p-1 w-32 ml-2 mr-2 text-blue-100">Edit</button>
+                }
+            </li>    
+        }
+    </ul>
+</div>
