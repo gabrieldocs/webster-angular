@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Interest } from './interest.interface';
 import { FormsModule } from '@angular/forms';
 import { InterestTypeSelect } from '../interest-type-select/interest-type-select';
+import { InterestItem } from '../interest-item/interest-item';
 
 @Component({
   selector: 'app-interest-form',
   templateUrl: './interest-form.html',
-  imports: [FormsModule, InterestTypeSelect],
+  imports: [FormsModule, InterestItem, InterestTypeSelect],
   styleUrl: './interest-form.css',
 })
 export class InterestForm {
@@ -69,5 +70,15 @@ export class InterestForm {
         return interest.interest_type === 'hobby' ? acc + 1 : acc;
       }, 0),
     }
+  }
+
+ handleDelete(interest: Interest) {
+    this.myInterests = this.myInterests.filter(i => i !== interest);
+  }
+
+  handleUpdate(updatedInterest: Interest) {
+   console.log('Item updated:', updatedInterest);
+    // No array logic needed! The object in 'myInterests' is already updated 
+    // because the child component modified the reference.
   }
 }

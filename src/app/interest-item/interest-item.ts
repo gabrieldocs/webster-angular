@@ -14,10 +14,10 @@ export class InterestItem {
   @Output() remove = new EventEmitter<void>();
   @Output() updated = new EventEmitter<Interest>();
 
-  idEditing = false;
+  isEditing = false;
 
   save() {
-    this.idEditing = false;
+    this.isEditing = false;
     this.updated.emit(this.interest);
   }
 }

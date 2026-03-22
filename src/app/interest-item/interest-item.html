@@ -1,1 +1,33 @@
-<p>interest-item works!</p>
+   <li class="mb-2 mt-3 font-bold border-b-2">
+        @if(isEditing) {
+            <div>
+                <input class="border p-1 border-blue-500"
+                    [(ngModel)]="interest.interest_name"/>
+                <app-interest-type-select [(value)]="interest.interest_type"></app-interest-type-select>
+                <button 
+                    (click)="save()"
+                    class="bg-green-500 p-1 w-32 ml-2 mr-2 text-green-100">
+                    Save
+                </button>
+                <button 
+                    (click)="isEditing = false"
+                    class="bg-red-500 p-1 w-32 ml-2 mr-2 text-red-100">
+                    Cancel
+                </button>
+            </div>
+        } @else {
+            <span>
+                {{interest.interest_name}} + <code class="text-pink-500">{{interest.interest_type}}</code>
+            </span>
+            <button 
+                (click)="isEditing = true"
+                class="bg-blue-500 p-1 w-32 ml-2 mr-2 text-blue-100">
+                Edit
+            </button>
+            <button 
+                (click)="remove.emit()"
+                class="bg-red-500 p-1 w-32 ml-2 mr-2 text-red-100">
+                Delete
+            </button>
+        }
+    </li>   
