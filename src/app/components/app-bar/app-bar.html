@@ -1,0 +1,12 @@
+<nav class="flex items-center justify-between px-4 py-2 bg-gray-100">
+    <span class="text-xl font-bold">Webster</span>
+    @if (auth.isAuthenticated()) {
+        <button (click)="handleLogout()">Logout</button>
+    } @else {
+        <button 
+            class="px-4 py-2 text-base cursor-pointer bg-white rounded shadow hover:bg-gray-200" 
+            routerLink="/login">
+            Login
+        </button>
+    }
+</nav>

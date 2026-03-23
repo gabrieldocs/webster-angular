@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { InterestTypeSelect } from '../interest-type-select/interest-type-select';
-import { Interest } from '../interest-form/interest.interface';
+import { Interest } from '../../pages/interests/interest.interface';
 
 @Component({
   selector: 'app-interest-item',

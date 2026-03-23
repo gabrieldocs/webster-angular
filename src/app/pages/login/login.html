@@ -1,0 +1,59 @@
+<div class="min-h-screen bg-white flex flex-col items-center py-8 px-4 font-sans text-slate-900">
+  
+  <div class="flex items-center gap-2 mb-10">
+    <!-- <lucide-icon name="layout-dashboard" class="size-10 text-slate-900"></lucide-icon> -->
+    <span class="text-3xl font-bold tracking-tight">Webster</span>
+  </div>
+
+  <div class="w-full max-w-[450px] flex flex-col items-center">
+    
+    <h1 class="text-3xl sm:text-5xl font-bold mb-10 text-center tracking-tighter">Log in to Webster</h1>
+
+    <form 
+      class="w-full space-y-4"
+      (ngSubmit)="onSubmit()">
+      <div class="flex flex-col gap-2">
+        <label class="text-sm font-bold" for="email">Email or username</label>
+        <input 
+          [(ngModel)]="loginData.email"
+          name="email"
+          id="email"
+          type="text" 
+          placeholder="Email or username" 
+          class="bg-white border border-slate-400 rounded-md p-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-900 hover:border-slate-900 transition-all"
+        >
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-sm font-bold" for="password">Password</label>
+        <input 
+          [(ngModel)]="loginData.password"
+          name="password"
+          id="password"
+          type="password" 
+          placeholder="Password" 
+          class="bg-white border border-slate-400 rounded-md p-3 text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-900 hover:border-slate-900 transition-all"
+        >
+      </div>
+
+      <button class="w-full bg-[#1db954] hover:bg-[#1ed760] text-black font-bold py-3 rounded-full transition-transform active:scale-95 mt-4 shadow-sm">
+        Log In
+      </button>
+    </form>
+
+    <div class="mt-8 text-center space-y-4">
+      <a href="#" class="text-sm font-bold hover:text-[#179443] underline transition-colors">Forgot your password?</a>
+      
+      <p class="text-slate-500 text-sm border-t border-slate-200 pt-8">
+        Don't have an account? 
+        <a routerLink="/signup" class="text-slate-900 font-bold hover:text-[#179443] underline ml-1">Sign up for Webster</a>
+      </p>
+    </div>
+  </div>
+
+  <footer class="mt-auto pt-10 text-[10px] text-slate-400 max-w-xs text-center">
+    This site is protected by reCAPTCHA and the Google 
+    <a href="#" class="underline hover:text-slate-600">Privacy Policy</a> and 
+    <a href="#" class="underline hover:text-slate-600">Terms of Service</a> apply.
+  </footer>
+</div>

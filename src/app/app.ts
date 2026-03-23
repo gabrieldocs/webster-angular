@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 // import { Billboard } from './billboard/billboard';
-import { InterestForm } from './interest-form/interest-form';
+// import { InterestForm } from './interest-form/interest-form';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, InterestForm],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   //styleUrl: './app.css'
 })

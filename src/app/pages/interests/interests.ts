@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
 import { Interest } from './interest.interface';
 import { FormsModule } from '@angular/forms';
-import { InterestTypeSelect } from '../interest-type-select/interest-type-select';
-import { InterestItem } from '../interest-item/interest-item';
+import { InterestTypeSelect } from '../../components/interest-type-select/interest-type-select';
+import { InterestItem } from '../../components/interest-item/interest-item';
+import { AppBar } from '../../components/app-bar/app-bar';
 
 @Component({
-  selector: 'app-interest-form',
-  templateUrl: './interest-form.html',
-  imports: [FormsModule, InterestItem, InterestTypeSelect],
-  styleUrl: './interest-form.css',
+  selector: 'app-interest-page',
+  templateUrl: './interests.html',
+  imports: [AppBar, FormsModule, InterestItem, InterestTypeSelect],
+  styleUrl: './interests.css',
 })
-export class InterestForm {
+export class Interests {
   filter: "all"|"hobby"|"work" = "all";
   newInterestType: "work" | "hobby" = "hobby";
 
